@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Eye } from "lucide-react";
 import project1Image from "@/assets/project1.jpg";
 import project2Image from "@/assets/project2.jpg";
 import project3Image from "@/assets/project3.jpg";
@@ -33,59 +33,86 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 px-4 bg-secondary/30">
-      <div className="container max-w-6xl mx-auto">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Featured Projects</h2>
-          <div className="w-20 h-1 gradient-primary mx-auto rounded-full"></div>
-          <p className="mt-6 text-xl text-muted-foreground max-w-2xl mx-auto">
+    <section id="projects" className="py-24 px-4 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] gradient-hero rounded-full blur-3xl opacity-5"></div>
+      
+      <div className="container max-w-7xl mx-auto relative">
+        <div className="text-center mb-20 animate-fade-in">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm mb-4">
+            <Eye className="w-4 h-4" />
+            Portfolio
+          </div>
+          <h2 className="text-5xl md:text-6xl font-bold mb-6">Featured Projects</h2>
+          <div className="w-24 h-1.5 gradient-accent mx-auto rounded-full"></div>
+          <p className="mt-8 text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Real results for real businesses
           </p>
         </div>
 
-        <div className="space-y-16">
+        <div className="space-y-12">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-smooth animate-fade-in-up"
+              className="group glass-card rounded-3xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 animate-fade-in-up"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid lg:grid-cols-2 gap-0">
                 {/* Image */}
-                <div className="relative overflow-hidden h-64 md:h-auto">
+                <div className="relative overflow-hidden h-80 lg:h-auto">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-end p-6">
-                    <ExternalLink className="w-6 h-6 text-white" />
+                  {/* Overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-end p-8">
+                    <div className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                      <ExternalLink className="w-6 h-6 text-white" />
+                    </div>
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-8 flex flex-col justify-center">
-                  <h3 className="text-3xl font-bold mb-4">{project.title}</h3>
+                <div className="p-10 lg:p-12 flex flex-col justify-center">
+                  <h3 className="text-3xl lg:text-4xl font-bold mb-6 group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h3>
 
-                  <div className="space-y-4 mb-6">
-                    <div>
-                      <p className="text-sm font-semibold text-primary mb-1">Challenge</p>
-                      <p className="text-muted-foreground">{project.problem}</p>
+                  <div className="space-y-6 mb-8">
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-0.5 gradient-primary"></div>
+                        <p className="text-sm font-bold text-primary uppercase tracking-wide">Challenge</p>
+                      </div>
+                      <p className="text-muted-foreground leading-relaxed">{project.problem}</p>
                     </div>
-                    <div>
-                      <p className="text-sm font-semibold text-primary mb-1">Solution</p>
-                      <p className="text-muted-foreground">{project.solution}</p>
+                    
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-0.5 gradient-accent"></div>
+                        <p className="text-sm font-bold text-accent uppercase tracking-wide">Solution</p>
+                      </div>
+                      <p className="text-muted-foreground leading-relaxed">{project.solution}</p>
                     </div>
-                    <div>
-                      <p className="text-sm font-semibold text-accent mb-1">Impact</p>
-                      <p className="font-medium">{project.outcome}</p>
+                    
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-0.5 bg-foreground"></div>
+                        <p className="text-sm font-bold uppercase tracking-wide">Impact</p>
+                      </div>
+                      <p className="font-semibold text-lg">{project.outcome}</p>
                     </div>
                   </div>
 
                   {/* Skills */}
                   <div className="flex flex-wrap gap-2">
                     {project.skills.map((skill, i) => (
-                      <Badge key={i} variant="secondary" className="px-3 py-1">
+                      <Badge 
+                        key={i} 
+                        variant="secondary" 
+                        className="px-4 py-1.5 text-sm font-medium hover:bg-primary hover:text-white transition-colors"
+                      >
                         {skill}
                       </Badge>
                     ))}

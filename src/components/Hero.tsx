@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import portraitImage from "@/assets/portrait.jpg";
 
 const Hero = () => {
@@ -8,61 +8,93 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden">
-      {/* Gradient background */}
-      <div className="absolute inset-0 gradient-hero opacity-10 blur-3xl"></div>
+    <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
+      {/* Animated gradient mesh background */}
+      <div className="absolute inset-0 gradient-mesh"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background"></div>
       
-      <div className="container max-w-6xl mx-auto relative z-10">
-        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
-          {/* Portrait */}
+      <div className="container max-w-7xl mx-auto relative z-10">
+        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
+          {/* Portrait with enhanced styling */}
           <div className="flex-shrink-0 animate-scale-in">
-            <div className="relative">
-              <div className="absolute inset-0 gradient-primary rounded-full blur-2xl opacity-30 animate-pulse"></div>
-              <img
-                src={portraitImage}
-                alt="Kishor Anbu - Graphic Designer"
-                className="relative w-64 h-64 md:w-80 md:h-80 rounded-full object-cover shadow-card-hover border-4 border-primary/20"
-              />
+            <div className="relative group">
+              {/* Glow effects */}
+              <div className="absolute -inset-8 gradient-primary rounded-full blur-3xl opacity-20 group-hover:opacity-30 transition-opacity"></div>
+              <div className="absolute -inset-4 gradient-accent rounded-full blur-2xl opacity-10 animate-pulse"></div>
+              
+              {/* Portrait */}
+              <div className="relative">
+                <img
+                  src={portraitImage}
+                  alt="Kishor Anbu - Graphic Designer"
+                  className="relative w-72 h-72 lg:w-96 lg:h-96 rounded-full object-cover shadow-card-hover border-4 border-white/50 group-hover:scale-105 transition-transform duration-500"
+                />
+                {/* Floating badge */}
+                <div className="absolute -bottom-4 -right-4 glass-card rounded-2xl px-6 py-3 shadow-card">
+                  <div className="flex items-center gap-2">
+                    <Sparkles className="w-5 h-5 text-accent" />
+                    <span className="font-semibold text-sm">Available for work</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Content */}
-          <div className="flex-1 text-center md:text-left space-y-6 animate-fade-in">
-            <div className="space-y-2">
-              <p className="text-primary font-medium tracking-wide uppercase text-sm">
+          <div className="flex-1 text-center lg:text-left space-y-8 animate-fade-in">
+            <div className="space-y-4">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
                 Freelance Graphic Designer
-              </p>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                Kishor Anbu
+              </div>
+              
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-tight">
+                Kishor <span className="gradient-primary bg-clip-text text-transparent">Anbu</span>
               </h1>
             </div>
 
-            <p className="text-xl md:text-2xl text-muted-foreground font-light max-w-2xl">
-              I design bold visuals that get noticed and remembered.
+            <p className="text-2xl md:text-3xl font-light text-foreground/90 max-w-2xl leading-relaxed">
+              I design <span className="font-semibold text-primary">bold visuals</span> that get noticed and remembered.
             </p>
 
-            <p className="text-lg text-muted-foreground max-w-xl">
-              Turning ideas into bold, usable visuals for startups and businesses that want to stand out.
+            <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
+              Turning ideas into bold, usable visuals for startups and businesses that want to stand out in the digital landscape.
             </p>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            {/* CTAs with enhanced styling */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-6">
               <Button
                 size="lg"
                 onClick={() => scrollToSection("projects")}
-                className="group gradient-primary hover:shadow-card-hover transition-smooth text-lg"
+                className="group gradient-primary hover:shadow-glow transition-all duration-300 text-lg h-14 px-8"
               >
-                View Work
+                View My Work
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 onClick={() => scrollToSection("contact")}
-                className="text-lg border-2 hover:border-primary hover:text-primary transition-smooth"
+                className="text-lg h-14 px-8 border-2 border-primary/20 hover:border-primary hover:bg-primary/5 transition-all"
               >
-                Get in Touch
+                Let's Talk
               </Button>
+            </div>
+
+            {/* Stats */}
+            <div className="flex flex-wrap gap-8 pt-8 border-t border-border/50">
+              <div>
+                <div className="text-3xl font-bold gradient-primary bg-clip-text text-transparent">50+</div>
+                <div className="text-sm text-muted-foreground">Projects Completed</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold gradient-primary bg-clip-text text-transparent">5+</div>
+                <div className="text-sm text-muted-foreground">Years Experience</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold gradient-primary bg-clip-text text-transparent">100%</div>
+                <div className="text-sm text-muted-foreground">Client Satisfaction</div>
+              </div>
             </div>
           </div>
         </div>
@@ -70,8 +102,8 @@ const Hero = () => {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-primary/30 rounded-full flex items-start justify-center p-2">
-          <div className="w-1.5 h-3 bg-primary rounded-full"></div>
+        <div className="w-6 h-10 border-2 border-primary/40 rounded-full flex items-start justify-center p-2">
+          <div className="w-1.5 h-3 gradient-primary rounded-full"></div>
         </div>
       </div>
     </section>
