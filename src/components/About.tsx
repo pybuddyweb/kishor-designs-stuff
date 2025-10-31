@@ -4,40 +4,40 @@ const About = () => {
   const milestones = [
     {
       icon: GraduationCap,
-      year: "2022",
-      title: "Design Spark",
+      year: "2019",
+      title: "Creative Foundation",
       description:
-        "Started exploring graphic design and web technologies during college days.",
+        "Completed Visual Communication and began exploring digital design & web technologies.",
+    },
+    {
+      icon: Briefcase,
+      year: "2021",
+      title: "Freelance Journey",
+      description:
+        "Started working with startups & businesses, delivering brand identities and responsive websites.",
     },
     {
       icon: Code,
       year: "2023",
-      title: "Learning & Building",
+      title: "Full-Stack Upgrade",
       description:
-        "Practiced front-end development with HTML, CSS, JavaScript, and React while creating mini projects.",
-    },
-    {
-      icon: Briefcase,
-      year: "2024",
-      title: "Freelance Projects",
-      description:
-        "Worked on logo designs, posters, and basic websites for friends and local startups.",
+        "Expanded into front-end web development using React, Tailwind, and modern web frameworks.",
     },
     {
       icon: Award,
       year: "2025",
-      title: "Creative Growth",
+      title: "Creative Developer",
       description:
-        "Improving daily in both design and development — building a strong portfolio and personal brand.",
+        "Recognized for bridging the gap between design and development with functional, aesthetic web experiences.",
     },
   ];
 
   const skills = [
-    { name: "Graphic Design", level: 90 },
-    { name: "UI/UX Design", level: 85 },
-    { name: "Web Development", level: 80 },
-    { name: "React & Tailwind", level: 75 },
-    { name: "Brand Identity", level: 85 },
+    { name: "Brand & Visual Design", level: 95 },
+    { name: "UI/UX Design", level: 90 },
+    { name: "Front-End Development", level: 88 },
+    { name: "React & Tailwind", level: 85 },
+    { name: "Illustration & Motion Graphics", level: 80 },
   ];
 
   return (
@@ -66,17 +66,19 @@ const About = () => {
                     Kishor Anbu
                   </span>
                   , a passionate{" "}
-                  <span className="font-semibold">Graphic Designer & Web Developer</span> who loves
-                  turning creative ideas into visual and interactive experiences.
+                  <span className="font-semibold">Graphic Designer & Web Developer</span> who blends
+                  creativity with technology. I build designs that not only look stunning but also
+                  function seamlessly across devices.
                 </p>
                 <p className="text-lg leading-relaxed text-muted-foreground">
-                  As a design enthusiast exploring coding, I enjoy building clean interfaces and
-                  functional websites. From crafting logos and posters to developing responsive
-                  web pages, I aim to blend art and logic in everything I create.
+                  With 5+ years of experience crafting visuals and digital interfaces, I help
+                  brands establish a strong online presence — from identity design to fully
+                  responsive websites. My workflow merges art and code to deliver impactful
+                  results.
                 </p>
                 <p className="text-lg leading-relaxed text-muted-foreground">
-                  When I'm not designing or coding, I explore UI trends, learn new tools, and
-                  experiment with side projects to level up my creative game.
+                  When I'm not designing or coding, you'll find me exploring new UI trends,
+                  improving web performance, or mentoring creatives stepping into tech.
                 </p>
               </div>
             </div>
@@ -108,18 +110,21 @@ const About = () => {
             <h3 className="text-2xl font-bold mb-8">My Journey</h3>
             {milestones.map((milestone, index) => (
               <div key={index} className="group relative">
+                {/* Connection line */}
                 {index < milestones.length - 1 && (
                   <div className="absolute left-6 top-16 w-0.5 h-full bg-gradient-to-b from-primary to-accent opacity-20"></div>
                 )}
 
                 <div className="glass-card rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 group-hover:scale-105">
                   <div className="flex gap-5">
+                    {/* Icon */}
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center group-hover:shadow-glow transition-all">
                         <milestone.icon className="w-6 h-6 text-white" />
                       </div>
                     </div>
 
+                    {/* Content */}
                     <div className="flex-1 pt-1">
                       <div className="flex items-center gap-3 mb-2">
                         <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-bold">
