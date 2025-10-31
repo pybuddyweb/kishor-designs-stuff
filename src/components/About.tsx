@@ -1,39 +1,50 @@
-import { Briefcase, GraduationCap, Award, TrendingUp } from "lucide-react";
+import { Briefcase, GraduationCap, Award, Code, TrendingUp } from "lucide-react";
 
 const About = () => {
   const milestones = [
     {
       icon: GraduationCap,
-      year: "2018",
-      title: "Design Journey Begins",
-      description: "Graduated with honors in Visual Communication Design",
+      year: "2022",
+      title: "Design Spark",
+      description:
+        "Started exploring graphic design and web technologies during college days.",
+    },
+    {
+      icon: Code,
+      year: "2023",
+      title: "Learning & Building",
+      description:
+        "Practiced front-end development with HTML, CSS, JavaScript, and React while creating mini projects.",
     },
     {
       icon: Briefcase,
-      year: "2020",
-      title: "Freelance Launch",
-      description: "Started working with tech startups and marketing agencies",
+      year: "2024",
+      title: "Freelance Projects",
+      description:
+        "Worked on logo designs, posters, and basic websites for friends and local startups.",
     },
     {
       icon: Award,
-      year: "2023",
-      title: "Industry Recognition",
-      description: "Featured in Design Weekly, 50+ successful client projects",
+      year: "2025",
+      title: "Creative Growth",
+      description:
+        "Improving daily in both design and development — building a strong portfolio and personal brand.",
     },
   ];
 
   const skills = [
-    { name: "Brand Identity", level: 95 },
-    { name: "UI/UX Design", level: 90 },
-    { name: "Illustration", level: 85 },
-    { name: "Motion Graphics", level: 80 },
+    { name: "Graphic Design", level: 90 },
+    { name: "UI/UX Design", level: 85 },
+    { name: "Web Development", level: 80 },
+    { name: "React & Tailwind", level: 75 },
+    { name: "Brand Identity", level: 85 },
   ];
 
   return (
     <section id="about" className="py-24 px-4 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 gradient-accent rounded-full blur-3xl opacity-5"></div>
-      
+
       <div className="container max-w-7xl mx-auto relative">
         <div className="text-center mb-20 animate-fade-in">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm mb-4">
@@ -50,13 +61,22 @@ const About = () => {
             <div className="glass-card rounded-3xl p-8 shadow-card hover:shadow-card-hover transition-all">
               <div className="space-y-6">
                 <p className="text-xl leading-relaxed">
-                  I'm <span className="font-bold gradient-primary bg-clip-text text-transparent">Kishor Anbu</span>, a graphic designer who blends strategy with playful aesthetics. I help brands speak clearly through strong visual identity and intuitive assets.
+                  I'm{" "}
+                  <span className="font-bold gradient-primary bg-clip-text text-transparent">
+                    Kishor Anbu
+                  </span>
+                  , a passionate{" "}
+                  <span className="font-semibold">Graphic Designer & Web Developer</span> who loves
+                  turning creative ideas into visual and interactive experiences.
                 </p>
                 <p className="text-lg leading-relaxed text-muted-foreground">
-                  With 5+ years of experience working with startup founders, marketing managers, and small businesses, I specialize in creating memorable design systems that drive results. My approach combines bold creativity with strategic thinking to deliver visuals that don't just look good—they work.
+                  As a design enthusiast exploring coding, I enjoy building clean interfaces and
+                  functional websites. From crafting logos and posters to developing responsive
+                  web pages, I aim to blend art and logic in everything I create.
                 </p>
                 <p className="text-lg leading-relaxed text-muted-foreground">
-                  When I'm not designing, you'll find me exploring new design trends, sketching ideas, or helping fellow designers grow their craft.
+                  When I'm not designing or coding, I explore UI trends, learn new tools, and
+                  experiment with side projects to level up my creative game.
                 </p>
               </div>
             </div>
@@ -87,25 +107,19 @@ const About = () => {
           <div className="space-y-6 animate-slide-in-right">
             <h3 className="text-2xl font-bold mb-8">My Journey</h3>
             {milestones.map((milestone, index) => (
-              <div
-                key={index}
-                className="group relative"
-              >
-                {/* Connection line */}
+              <div key={index} className="group relative">
                 {index < milestones.length - 1 && (
                   <div className="absolute left-6 top-16 w-0.5 h-full bg-gradient-to-b from-primary to-accent opacity-20"></div>
                 )}
-                
+
                 <div className="glass-card rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 group-hover:scale-105">
                   <div className="flex gap-5">
-                    {/* Icon */}
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center group-hover:shadow-glow transition-all">
                         <milestone.icon className="w-6 h-6 text-white" />
                       </div>
                     </div>
-                    
-                    {/* Content */}
+
                     <div className="flex-1 pt-1">
                       <div className="flex items-center gap-3 mb-2">
                         <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-bold">
@@ -113,7 +127,9 @@ const About = () => {
                         </span>
                       </div>
                       <h4 className="font-bold text-xl mb-2">{milestone.title}</h4>
-                      <p className="text-muted-foreground leading-relaxed">{milestone.description}</p>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {milestone.description}
+                      </p>
                     </div>
                   </div>
                 </div>
